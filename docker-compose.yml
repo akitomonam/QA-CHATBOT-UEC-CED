@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  dialog:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports: 
+      - "12345:12345"
+    volumes:
+      - .:/dialog
