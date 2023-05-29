@@ -1,2 +1,4 @@
 config.json
 storage
+*.wav
+__pycache__

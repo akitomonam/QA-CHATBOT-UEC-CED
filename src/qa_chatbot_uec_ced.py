@@ -9,7 +9,7 @@ from llama_index import StorageContext, load_index_from_storage
 
 class UECQueryEngine:
     def __init__(self, reindex):
-        with open('config.json', 'r') as f:
+        with open('../config.json', 'r') as f:
             config = json.load(f)
 
         os.environ["OPENAI_API_KEY"] = config["OPENAI_API_KEY"]
@@ -17,7 +17,7 @@ class UECQueryEngine:
 
         if reindex:
             # インデックスの再作成
-            documents = SimpleDirectoryReader("data").load_data()
+            documents = SimpleDirectoryReader("../data").load_data()
             index = GPTVectorStoreIndex.from_documents(documents)
             # インデックスの保存
             index.storage_context.persist()
