@@ -1,6 +1,7 @@
 # CED-UEC-QA-CHATBOT(DEMO)
 CED-TAが作成した電気通信大学のQAチャットボットです。  
-電気通信大学に関する質問ができます。
+電気通信大学に関する質問ができます。  
+<img width="265" alt="image" src="https://github.com/akitomonam/QA-CHATBOT-UEC-CED/assets/72239675/b4528294-b673-4253-be82-9ca0f40c8bbf">
 # 動作確認済み環境
 Windows11
 # 使い方
