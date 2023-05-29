@@ -40,6 +40,12 @@ dataフォルダ内に.txtファイルを作成する。（作成済み）
 cd src
 python qa_chatbot_uec_ced_simple_gui_thread.py
 ```
+## 注意
+初回実行時は以下を実行する。
+```
+cd src
+python qa_chatbot_uec_ced.py --reindex
+```
 # 備考
 作成者:佐藤明智(CED-TA)  
 日付:2023/05/29
