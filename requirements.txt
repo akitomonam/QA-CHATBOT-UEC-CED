@@ -5,3 +5,4 @@ llama-index==0.6.0
 SpeechRecognition
 pyaudio
 playsound
+pyinstaller

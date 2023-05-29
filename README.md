@@ -10,6 +10,8 @@ CED-TAが作成した電気通信大学のQAチャットボットです。
 Docker version 23.0.5, build bc4487a
 Docker Compose version v2.17.3
 ```
+VOICEVOXを使用して音声合成します。　　
+(リンク)[https://voicevox.hiroshiba.jp/]からファイルをダウンロードしてインストール後、起動してください。
 ### テキストファイルの作成
 dataフォルダ内に.txtファイルを作成してください。
 この.txtファイルに様々な情報を書き込みます。
@@ -24,8 +26,15 @@ docker compose exec main bash # コンテナシェルに入る
 ```
 以下、コンテナ内で実行
 ```
+cd src
 python qa_chatbot_uec_ced.py --reindex # ドキュメント更新の場合 or 初回動作時
 # python qa_chatbot_uec_ced.py # ドキュメントの更新がない場合
+```
+# 備考
+Anaconda環境も用意しています。
+```
+conda create -n uec-ced-qa-chatbot python=3.9
+conda activate uec-ced-qa-chatbot
 ```
 # 作成者
 佐藤明智(CED-TA)

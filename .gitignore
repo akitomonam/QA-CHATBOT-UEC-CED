@@ -2,3 +2,7 @@ config.json
 storage
 *.wav
 __pycache__
+build
+dist
+*.spec
+*.exe
