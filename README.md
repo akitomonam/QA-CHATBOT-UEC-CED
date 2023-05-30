@@ -56,3 +56,4 @@ python qa_chatbot_uec_ced.py --reindex
 # 備考
 作成者:佐藤明智(CED-TA)  
 日付:2023/05/29
+[WEB-UIの説明](./README_WEB.md)
