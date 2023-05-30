@@ -1,2 +1,5 @@
-FROM node:17.7.2
-WORKDIR /usr/src/app
+FROM node:18.16.0-alpine
+
+WORKDIR /web_client
+
+ENTRYPOINT ["sh", "./setup.sh" ]
