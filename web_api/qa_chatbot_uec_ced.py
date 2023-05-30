@@ -17,7 +17,7 @@ class UECQueryEngine:
 
         if reindex:
             # インデックスの再作成
-            documents = SimpleDirectoryReader("../data").load_data()
+            documents = SimpleDirectoryReader("./data").load_data()
             index = GPTVectorStoreIndex.from_documents(documents)
             # インデックスの保存
             index.storage_context.persist()

@@ -1,6 +1,7 @@
 
 openai
-# langchain
+langchain
 llama-index==0.6.0
 fastapi
 uvicorn[standard]
+transformers
