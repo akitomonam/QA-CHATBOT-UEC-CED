@@ -34,7 +34,7 @@ cd QA-CHATBOT-UEC-CED
 pip install -r requirements4anaconda.txt
 ```
 ## QA参照ファイルの作成
-dataフォルダ内に.txtファイルを作成する。（作成済み）  
+web_api/dataフォルダ内に.txtファイルを作成する。（作成済み）  
 この.txtファイルに様々な情報を書き込む。
 実行時はこれらのファイルを読み込み、それを元にして回答を作成する。
 ## API KEYの取得
@@ -44,13 +44,13 @@ dataフォルダ内に.txtファイルを作成する。（作成済み）
 以下のようにプログラムを実行するとGUIが立ち上がり音声認識で質問できる。  
 システムは音声合成によって回答する。
 ```
-cd src
+cd web_api
 python qa_chatbot_uec_ced_simple_gui_thread.py
 ```
 ## 注意
 初回実行時は以下を実行する。
 ```
-cd src
+cd web_api
 python qa_chatbot_uec_ced.py --reindex
 ```
 # 備考

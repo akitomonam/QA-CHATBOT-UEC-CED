@@ -9,7 +9,7 @@ from llama_index import StorageContext, load_index_from_storage
 
 class UECQueryEngine:
     def __init__(self, reindex):
-        with open('../config.json', 'r') as f:
+        with open('./config.json', 'r') as f:
             config = json.load(f)
 
         os.environ["OPENAI_API_KEY"] = config["OPENAI_API_KEY"]

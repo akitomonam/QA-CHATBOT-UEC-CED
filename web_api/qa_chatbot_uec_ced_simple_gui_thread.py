@@ -17,7 +17,7 @@ class App:
         self.voicevox_system = voicevox_request_local_api.VoiceVoxRequestLocalApi()
 
         # JSONファイルからAPIキーを読み取る
-        with open('../config.json', 'r') as f:
+        with open('./config.json', 'r') as f:
             config = json.load(f)
             openai.api_key = config['OPENAI_API_KEY']
             self.api_key = config['OPENAI_API_KEY']
@@ -82,7 +82,7 @@ class App:
         self.api_key = self.api_key_entry.get()
         openai.api_key = self.api_key_entry.get()
         config = {"OPENAI_API_KEY": self.api_key}
-        with open('../config.json', 'w') as f:
+        with open('./config.json', 'w') as f:
             json.dump(config, f, indent=4)
 
     def start_recording(self):
@@ -125,7 +125,7 @@ class App:
                 print("音声入力開始...")
                 try:
                     audio = self.r.listen(source, 3)
-                except:
+                except BaseException:
                     continue
                 try:
                     with wave.open("audio.wav", "wb") as f:
