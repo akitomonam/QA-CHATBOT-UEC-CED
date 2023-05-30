@@ -31,7 +31,7 @@ cd QA-CHATBOT-UEC-CED
 ```
 必要なライブラリをインストールする。
 ```
-pip install -r requirements4anaconda.txt
+pip install -r web_api/requirements4anaconda.txt
 ```
 ## QA参照ファイルの作成
 web_api/dataフォルダ内に.txtファイルを作成する。（作成済み）  
