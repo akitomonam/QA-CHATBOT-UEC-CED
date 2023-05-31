@@ -19,4 +19,4 @@ services:
       - "3000:3000"
     volumes:
       - ./web_client/app:/web_client
-    # command: sh -c "cd /web_client && npm start"
+    command: sh -c "npm install && npm start"
