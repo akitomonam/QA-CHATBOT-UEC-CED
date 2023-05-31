@@ -5,6 +5,8 @@ import argparse
 import logging
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader
 from llama_index import StorageContext, load_index_from_storage
+from llama_index import LLMPredictor, PromptHelper, ServiceContext
+from langchain import OpenAI
 
 
 class UECQueryEngine:
@@ -15,10 +17,21 @@ class UECQueryEngine:
         os.environ["OPENAI_API_KEY"] = config["OPENAI_API_KEY"]
         logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, force=True)
 
+        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="gpt-3.5-turbo"))
+        # define prompt helper
+        # set maximum input size
+        max_input_size = 4096
+        # set number of output tokens
+        num_output = 256
+        # set maximum chunk overlap
+        max_chunk_overlap = 20
+        prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
+        service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
+
         if reindex:
             # インデックスの再作成
             documents = SimpleDirectoryReader("./data").load_data()
-            index = GPTVectorStoreIndex.from_documents(documents)
+            index = GPTVectorStoreIndex.from_documents(documents, service_context=service_context)
             # インデックスの保存
             index.storage_context.persist()
         else:
