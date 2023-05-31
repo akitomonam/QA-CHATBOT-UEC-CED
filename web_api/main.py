@@ -30,3 +30,9 @@ def return_answer(question_sentence: str):
     # 。ごとに改行を入れる
     ans = ans.replace("。", "。\n")
     return {"ans": ans}
+
+
+@app.get("/makeindex")
+def make_index():
+    quert_engine.make_index()
+    return {"status": "ok"}

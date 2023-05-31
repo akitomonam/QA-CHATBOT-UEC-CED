@@ -25,6 +25,21 @@ export default function QAWindow() {
         .catch(error => setAnswer('エラーが発生しました。'))
         .finally(() => setLoading(false)); // ローディング状態を解除する
     };
+    const handleMakeIndex = () => {
+        setLoading(true);
+        const url = `http://127.0.0.1:8000/makeindex`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        };
+        fetch(url, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => setAnswer('エラーが発生しました。'))
+        .finally(() => setLoading(false)); // ローディング状態を解除する
+    };
     return (
         <>
             <TextField
@@ -35,12 +50,20 @@ export default function QAWindow() {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 />
+            <div>
             <Button 
                 variant="contained" 
                 color="primary" 
                 onClick={handleClick}>
                 送信
             </Button>
+            <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={handleMakeIndex}>
+                文書のインデックスを再作成
+            </Button>
+            </div>
              {/* ローディング状態がtrueの場合には、<CircularProgress />を表示する */}
             {loading ? (
                 <CircularProgress />
