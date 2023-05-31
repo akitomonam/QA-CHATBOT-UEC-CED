@@ -32,6 +32,12 @@ class UECQueryEngine:
     def query(self, question):
         return self.query_engine.query(question)
 
+    def make_index(self):
+        documents = SimpleDirectoryReader("./data").load_data()
+        index = GPTVectorStoreIndex.from_documents(documents)
+        # インデックスの保存
+        index.storage_context.persist()
+
 
 if __name__ == "__main__":
     # コマンドライン引数の処理

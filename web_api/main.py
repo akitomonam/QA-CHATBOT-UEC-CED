@@ -16,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-quert_engine = qa_chatbot_uec_ced.UECQueryEngine(reindex=False)
+quert_engine = qa_chatbot_uec_ced.UECQueryEngine(reindex=True)  # 一応起動時にインデックスを作成しておく
 
 
 @app.get("/helloworld")
