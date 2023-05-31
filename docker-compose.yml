@@ -20,3 +20,22 @@ services:
     volumes:
       - ./web_client/app:/web_client
     command: sh -c "npm install && npm start"
+  
+  voicevox_engine:
+    # CPUの場合は voicevox/voicevox_engine:cpu-ubuntu20.04-latest を使用
+    image: voicevox/voicevox_engine:nvidia-ubuntu20.04-latest
+    ports:
+      - "50021:50021"
+    tty: true
+    volumes:
+      - ./voicevox_engine:/app/voicevox_engine
+    #
+    # 以下の項目はCPUの場合はなくても大丈夫
+    #
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
