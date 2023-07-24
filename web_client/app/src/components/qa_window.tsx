@@ -73,7 +73,7 @@ export default function QAWindow() {
         setAnswer('');
         setLoading(true);
         // 質問を送信する
-        const url = `http://127.0.0.1:8000/question?question_sentence=${question}`;
+        const url = `http://127.0.0.1:12344/question?question_sentence=${question}`;
         const options = {
             method: 'GET',
             headers: {
@@ -99,7 +99,7 @@ export default function QAWindow() {
     };
     const handleMakeIndex = () => {
         setLoading(true);
-        const url = `http://127.0.0.1:8000/makeindex`;
+        const url = `http://127.0.0.1:12344/makeindex`;
         const options = {
             method: 'GET',
             headers: {
