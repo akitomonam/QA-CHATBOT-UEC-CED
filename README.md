@@ -1,38 +1,12 @@
 # CED-UEC-QA-CHATBOT(DEMO)
 CED-TAが作成した電気通信大学のQAチャットボットです。  
 電気通信大学に関する質問ができます。  
-<img width="265" alt="image" src="https://github.com/akitomonam/QA-CHATBOT-UEC-CED/assets/72239675/b4528294-b673-4253-be82-9ca0f40c8bbf">
-# 動作確認済み環境
-Windows11
+<img width="354" alt="image" src="https://github.com/akitomonam/QA-CHATBOT-UEC-CED/assets/72239675/071de589-b109-4190-99ba-e039e28a3bfd">
+
 # 使い方
-実行するためには以下の準備が必要です。
-- VOICEVOXのインストールと起動
-- Anacondaのインストールと環境構築
-- プログラムの入手
-- QA参照ファイルの作成
-- API KEYの取得
-## VOICEVOX(音声合成)
-[リンク](https://voicevox.hiroshiba.jp/)からファイルをダウンロードしてインストール後、起動する。  
-## Anaconda
-以下のリンクからAnacondaを入手してインストールまで済ませる。  
-https://www.anaconda.com/download  
-Anacondaで環境を構築する。  
-```
-conda create -n uec-ced-qa-chatbot python=3.9
-conda activate uec-ced-qa-chatbot
-```
-## プログラムを入手の入手
-```
-git clone https://github.com/akitomonam/QA-CHATBOT-UEC-CED.git
-```
-フォルダに移動する。
-```
-cd QA-CHATBOT-UEC-CED
-```
-必要なライブラリをインストールする。
-```
-pip install -r web_api/requirements4anaconda.txt
-```
+## Dockerの用意
+docker desktopアプリをダウンロードしてインストールしてください．
+その後，起動してください．
 ## QA参照ファイルの作成
 web_api/dataフォルダ内に.txtファイルを作成する。（作成済み）  
 この.txtファイルに様々な情報を書き込む。
@@ -40,20 +14,10 @@ web_api/dataフォルダ内に.txtファイルを作成する。（作成済み�
 ## API KEYの取得
 [OpenAIウェブサイト](https://openai.com/)からAPIキーを取得して、
 [config.json](config.json)に書き込む。※参考：[config.sample.json](config.sample.json)
-## 実行
-以下のようにプログラムを実行するとGUIが立ち上がり音声認識で質問できる。  
-システムは音声合成によって回答する。
+## システム起動
 ```
-cd web_api
-python qa_chatbot_uec_ced_simple_gui_thread.py
-```
-## 注意
-初回実行時は以下を実行する。
-```
-cd web_api
-python qa_chatbot_uec_ced.py --reindex
+docker compose up -d
 ```
 # 備考
 作成者:佐藤明智(CED-TA)  
-日付:2023/05/29  
-[WEB-UIの説明](./README_WEB.md)
+日付:2023/07/24

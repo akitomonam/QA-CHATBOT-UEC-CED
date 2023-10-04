@@ -6,7 +6,7 @@ import logging
 from llama_index import GPTVectorStoreIndex, SimpleDirectoryReader
 from llama_index import StorageContext, load_index_from_storage
 from llama_index import LLMPredictor, PromptHelper, ServiceContext
-from langchain import OpenAI
+from langchain.chat_models import ChatOpenAI
 
 
 class UECQueryEngine:
@@ -17,7 +17,7 @@ class UECQueryEngine:
         os.environ["OPENAI_API_KEY"] = config["OPENAI_API_KEY"]
         logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, force=True)
 
-        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="gpt-3.5-turbo"))
+        llm_predictor = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"))
         # define prompt helper
         # set maximum input size
         max_input_size = 4096
@@ -25,7 +25,7 @@ class UECQueryEngine:
         num_output = 256
         # set maximum chunk overlap
         max_chunk_overlap = 20
-        prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
+        prompt_helper = PromptHelper(context_window=max_input_size, num_output=num_output)
         service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
         if reindex:
