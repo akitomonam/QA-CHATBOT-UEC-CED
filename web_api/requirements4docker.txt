@@ -1,7 +1,7 @@
 
-openai
-langchain
-llama-index==0.6.0
-fastapi
+openai==0.28.1
+langchain==0.0.306
+llama-index==0.8.39.post2
+fastapi==0.103.2
 uvicorn[standard]
-transformers
+transformers==4.34.0
